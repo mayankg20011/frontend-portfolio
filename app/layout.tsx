@@ -7,8 +7,16 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Adrian's Portfolio",
-  description: "Modern & Minimal JS Mastery Portfolio",
+  title: "Mayank Goyal Senior Frontend Web Developer Portfolio IIT Patna",
+  description:
+    "Mayank Goyal Frontend Developer Portfolio IIT Patna, Senior Web Developer, Proven track record in improving SEO rankings, enhancing web vitals,and ensuring security best practices. Passionate about driving innovation, streamlining workflows, and mentoring teams to achieve engineering excellence",
+  keywords:
+    "Mayank Goyal, IIT Patna, Mayank Goyal IIT Patna, Mayank Goyal Frontend Developer, Senior Frontend Developer, Web Developer, ReactJs Developer, Indian Institute of Technology Patna, Piramal Finance, Winzo Games",
+  authors: [
+    { name: "Mayank Goyal", url: "https://www.linkedin.com/in/mayankiitp/" },
+  ],
+  publisher: "Mayank Goyal",
+  robots: "index, follow",
 };
 
 export default function RootLayout({
