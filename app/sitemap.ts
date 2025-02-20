@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mayank-goyal.vercel.app";
+  const baseUrl = "http://mayankgoyal.tech";
 
   // Get all the projects from data
   const projects = [

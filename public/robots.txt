@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://mayank-goyal.vercel.app/sitemap.xml
+Sitemap: http://mayankgoyal.tech/sitemap.xml
