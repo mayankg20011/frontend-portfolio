@@ -7,7 +7,7 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mayank Goyal Senior Frontend Web Developer Portfolio IIT Patna",
+  title: "Mayank Goyal Portfolio - Senior Frontend Developer",
   description:
     "Mayank Goyal Frontend Developer Portfolio IIT Patna, Senior Web Developer, Proven track record in improving SEO rankings, enhancing web vitals,and ensuring security best practices. Passionate about driving innovation, streamlining workflows, and mentoring teams to achieve engineering excellence",
   keywords:
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/jsm-logo.png" sizes="any" />
+        <link rel="icon" href="/MayankGoyal.png" sizes="any" />
       </head>
       <body className={inter.className}>
         <ThemeProvider
