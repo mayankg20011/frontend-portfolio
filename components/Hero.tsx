@@ -1,4 +1,4 @@
-import { HiArrowDown } from "react-icons/hi2";
+import { FaArrowDown } from "react-icons/fa";
 
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
@@ -64,7 +64,7 @@ const Hero = () => {
           <a href="/files/MAYANK_GOYAL_CV.pdf" download={"MAYANK_GOYAL_CV.pdf"}>
             <MagicButton
               title="RESUME"
-              icon={<HiArrowDown />}
+              icon={<FaArrowDown />}
               position="right"
             />
           </a>
