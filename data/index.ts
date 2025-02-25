@@ -192,7 +192,7 @@ export const workExperience = [
   {
     id: 3,
     title: "Web Development",
-    desc: "Led the dev of multiple websites for startups, focusing on modern UI/UX principles, optimized performance, SEO, & seamless user experiences.",
+    desc: "Led the development of multiple websites for startups, focusing on modern UI/UX principles, optimized performance, SEO, & seamless user experiences.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp3.svg",
   },
