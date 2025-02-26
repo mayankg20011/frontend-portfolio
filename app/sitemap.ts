@@ -4,24 +4,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://mayankgoyal.tech";
 
   // Get all the projects from data
-  const projects = [
-    {
-      url: "https://www.piramalfinance.com",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://www.winzogames.com",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://ulink.com",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://advanced-storybook.vercel.app",
-      lastModified: new Date(),
-    },
-  ];
 
   // Base routes
   const routes = [
@@ -47,5 +29,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...routes, ...projects];
+  return [...routes];
 }
