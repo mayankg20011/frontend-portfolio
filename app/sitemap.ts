@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "http://mayankgoyal.tech";
+  const baseUrl = "https://mayankgoyal.tech";
 
   // Get all the projects from data
   const projects = [
