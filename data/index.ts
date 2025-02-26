@@ -79,7 +79,7 @@ export const projects = [
     title: "Piramal Finance",
     des: "NBFC offering Home Loans, Secured & Unsecured Business Loans in India",
     img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
     link: "https://www.piramalfinance.com",
   },
   {
@@ -87,7 +87,7 @@ export const projects = [
     title: "Winzo Games",
     des: "Biggest social gaming app in India by number of games, languages & exciting formats.",
     img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
     link: "https://www.winzogames.com/",
   },
   {
@@ -95,7 +95,7 @@ export const projects = [
     title: "ULink Money Transfer",
     des: "Transfer money online from the U.S. to your loved ones around the world",
     img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg"],
     link: "https://ulink.com",
   },
   {
@@ -103,7 +103,7 @@ export const projects = [
     title: "Storybook",
     des: "Centralized Reusable UI Component Library for Scalable Frontend Systems",
     img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
     link: "https://advanced-storybook.vercel.app/",
   },
 ];

@@ -51,10 +51,12 @@ const Hero = () => {
            *
            *  change md:text-6xl, add more responsive code
            */}
-          <TextGenerateEffect
-            words="Hi! I'm Mayank Goyal, a Frontend Developer"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
-          />
+          <h1>
+            <TextGenerateEffect
+              words="Hi! I'm Mayank Goyal, a Frontend Developer"
+              className="text-center text-[40px] md:text-5xl lg:text-6xl"
+            />
+          </h1>
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             Software engineer specialized in building exceptional digital
