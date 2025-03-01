@@ -3,6 +3,7 @@ export const navItems = [
   { name: "Projects", link: "#projects" },
   { name: "Experience", link: "#experience" },
   // { name: "Testimonials", link: "#testimonials" },
+  { name: "Blogs", link: "#blogs" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -177,31 +178,31 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Summer Research Intern",
-    desc: "Developed a device for Singapore government which consisted of arduino board, temperature & humidity sensors to monitor the quality of surrounding air (IoT).",
+    title: "Lead Frontend Developer",
+    desc: "Developed and maintained user-facing features using modern frontend techniques like backend-driven UI, micro frontend, storybook, optimizations.",
     className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
+    thumbnail: "/exp4.svg",
   },
   {
     id: 2,
-    title: "Mobile App Dev - ULink",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using Apache Cordova.",
+    title: "Web Development",
+    desc: "Led the development of multiple websites for startups, focusing on modern UI/UX principles, optimized performance, SEO, & seamless user experiences.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
-    title: "Web Development",
-    desc: "Led the development of multiple websites for startups, focusing on modern UI/UX principles, optimized performance, SEO, & seamless user experiences.",
+    title: "Mobile App Dev - ULink",
+    desc: "Designed and developed mobile app for both iOS & Android platforms using Apache Cordova.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend techniques like backend-driven UI, micro frontend, storybook, optimizations.",
+    title: "Summer Research Intern",
+    desc: "Developed a device for Singapore government which consisted of arduino board, temperature & humidity sensors to monitor the quality of surrounding air (IoT).",
     className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    thumbnail: "/exp1.svg",
   },
 ];
 
