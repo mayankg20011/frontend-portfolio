@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
-const inter = Inter({ subsets: ["latin"] });
+// Optimize font loading with display swap
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: "Mayank Goyal Portfolio - Senior Frontend Developer",
@@ -31,6 +37,23 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/MayankGoyal.png" sizes="any" />
+        {/* Add preload for critical CSS */}
+        <link
+          rel="preload"
+          href="/_next/static/css/17e412ec092d6dd3.css"
+          as="style"
+        />
+        {/* Add preconnect for Google Fonts */}
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className={inter.className}>
         <ThemeProvider
@@ -41,6 +64,13 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        {/* Load non-critical scripts with low priority */}
+        <Script id="performance-optimization" strategy="afterInteractive">
+          {`
+            // Add any non-critical initialization here
+            console.log('Non-critical scripts loaded');
+          `}
+        </Script>
       </body>
     </html>
   );
