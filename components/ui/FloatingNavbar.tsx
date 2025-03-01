@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -24,6 +24,24 @@ export const FloatingNav = ({
 
   // set true for the initial state so that nav bar is visible in the hero section
   const [visible, setVisible] = useState(true);
+
+  // Handle page visibility changes to support bfcache
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        // Page is now visible, update state if needed
+        setVisible(true);
+      }
+    };
+
+    // Add event listener for page visibility changes
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Clean up event listener on component unmount
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number

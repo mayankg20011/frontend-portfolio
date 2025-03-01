@@ -1,6 +1,7 @@
 "use client";
 
 import { FaLocationArrow } from "react-icons/fa6";
+import Image from "next/image";
 
 import { projects } from "@/data";
 import { PinContainer } from "./ui/Pin";
@@ -31,11 +32,19 @@ const RecentProjects = () => {
                     className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                     style={{ backgroundColor: "#13162D" }}
                   >
-                    <img src="/bg.png" alt="bgimg" />
+                    <Image
+                      src="/bg.png"
+                      alt="bgimg"
+                      fill
+                      sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
-                  <img
+                  <Image
                     src={item.img}
                     alt="cover"
+                    width={300}
+                    height={200}
                     className="z-10 absolute bottom-0"
                   />
                 </div>
@@ -67,7 +76,13 @@ const RecentProjects = () => {
                           transform: `translateX(-${5 * index + 2}px)`,
                         }}
                       >
-                        <img src={icon} alt="icon5" className="p-2" />
+                        <Image
+                          src={icon}
+                          alt="technology icon"
+                          width={24}
+                          height={24}
+                          className="p-2"
+                        />
                       </div>
                     ))}
                   </div>
