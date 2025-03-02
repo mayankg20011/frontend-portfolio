@@ -113,7 +113,9 @@ export const BentoGridItem = ({
               alt="Grid image"
               width={500}
               height={500}
+              priority={id === 1 || img === "/b1.svg"}
               className={cn(imgClassName, "object-cover object-center")}
+              style={{ width: "auto", height: "auto" }}
             />
           )}
         </div>

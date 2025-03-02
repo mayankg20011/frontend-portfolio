@@ -42,10 +42,11 @@ const RecentProjects = () => {
                   </div>
                   <Image
                     src={item.img}
-                    alt="cover"
+                    alt={`${item.title} project image`}
                     width={300}
                     height={200}
                     className="z-10 absolute bottom-0"
+                    style={{ width: "auto", height: "auto" }}
                   />
                 </div>
 
@@ -79,9 +80,10 @@ const RecentProjects = () => {
                         <Image
                           src={icon}
                           alt="technology icon"
-                          width={60}
-                          height={60}
+                          width={24}
+                          height={24}
                           className="p-2"
+                          style={{ width: "auto", height: "auto" }}
                         />
                       </div>
                     ))}

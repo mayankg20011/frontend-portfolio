@@ -118,7 +118,25 @@ export function Globe({ globeConfig, data }: WorldProps) {
     let points = [];
     for (let i = 0; i < arcs.length; i++) {
       const arc = arcs[i];
+
+      // Validate coordinates to ensure they are valid numbers
+      if (
+        isNaN(arc.startLat) ||
+        isNaN(arc.startLng) ||
+        isNaN(arc.endLat) ||
+        isNaN(arc.endLng) ||
+        !isFinite(arc.startLat) ||
+        !isFinite(arc.startLng) ||
+        !isFinite(arc.endLat) ||
+        !isFinite(arc.endLng)
+      ) {
+        console.warn("Invalid coordinates detected:", arc);
+        continue; // Skip this arc
+      }
+
       const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
+
+      // Only add points with valid coordinates
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
@@ -126,6 +144,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         lat: arc.startLat,
         lng: arc.startLng,
       });
+
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
@@ -135,15 +154,27 @@ export function Globe({ globeConfig, data }: WorldProps) {
       });
     }
 
-    // remove duplicates for same lat and lng
-    const filteredPoints = points.filter(
-      (v, i, a) =>
+    // remove duplicates for same lat and lng and ensure valid coordinates
+    const filteredPoints = points.filter((v, i, a) => {
+      // Ensure coordinates are valid numbers
+      if (
+        isNaN(v.lat) ||
+        isNaN(v.lng) ||
+        !isFinite(v.lat) ||
+        !isFinite(v.lng)
+      ) {
+        return false;
+      }
+
+      // Check for duplicates
+      return (
         a.findIndex((v2) =>
           ["lat", "lng"].every(
             (k) => v2[k as "lat" | "lng"] === v[k as "lat" | "lng"]
           )
         ) === i
-    );
+      );
+    });
 
     setGlobeData(filteredPoints);
   };
@@ -167,27 +198,65 @@ export function Globe({ globeConfig, data }: WorldProps) {
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return;
 
+    // Filter out any arcs with invalid coordinates
+    const validArcs = data.filter(
+      (arc) =>
+        !isNaN(arc.startLat) &&
+        !isNaN(arc.startLng) &&
+        !isNaN(arc.endLat) &&
+        !isNaN(arc.endLng) &&
+        isFinite(arc.startLat) &&
+        isFinite(arc.startLng) &&
+        isFinite(arc.endLat) &&
+        isFinite(arc.endLng)
+    );
+
     globeRef.current
-      .arcsData(data)
-      .arcStartLat((d) => (d as { startLat: number }).startLat * 1)
-      .arcStartLng((d) => (d as { startLng: number }).startLng * 1)
-      .arcEndLat((d) => (d as { endLat: number }).endLat * 1)
-      .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
+      .arcsData(validArcs)
+      .arcStartLat((d) => {
+        const val = (d as { startLat: number }).startLat;
+        return isNaN(val) ? 0 : Number(val); // Ensure it's a valid number
+      })
+      .arcStartLng((d) => {
+        const val = (d as { startLng: number }).startLng;
+        return isNaN(val) ? 0 : Number(val);
+      })
+      .arcEndLat((d) => {
+        const val = (d as { endLat: number }).endLat;
+        return isNaN(val) ? 0 : Number(val);
+      })
+      .arcEndLng((d) => {
+        const val = (d as { endLng: number }).endLng;
+        return isNaN(val) ? 0 : Number(val);
+      })
       .arcColor((e: any) => (e as { color: string }).color)
       .arcAltitude((e) => {
-        return (e as { arcAlt: number }).arcAlt * 1;
+        const val = (e as { arcAlt: number }).arcAlt;
+        return isNaN(val) ? 0.1 : Number(val); // Provide a default if NaN
       })
       .arcStroke((e) => {
         return [0.32, 0.28, 0.3][Math.round(Math.random() * 2)];
       })
       .arcDashLength(defaultProps.arcLength)
-      .arcDashInitialGap((e) => (e as { order: number }).order * 1)
+      .arcDashInitialGap((e) => {
+        const val = (e as { order: number }).order;
+        return isNaN(val) ? 0 : Number(val);
+      })
       .arcDashGap(15)
       .arcDashAnimateTime((e) => defaultProps.arcTime);
 
+    // Filter out any points with invalid coordinates
+    const validPoints = globeData.filter(
+      (point) =>
+        !isNaN(point.lat) &&
+        !isNaN(point.lng) &&
+        isFinite(point.lat) &&
+        isFinite(point.lng)
+    );
+
     globeRef.current
-      .pointsData(data)
-      .pointColor((e) => (e as { color: string }).color)
+      .pointsData(validPoints)
+      .pointColor((e) => (e as { color: (t: number) => string }).color(1))
       .pointsMerge(true)
       .pointAltitude(0.0)
       .pointRadius(2);
