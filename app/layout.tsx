@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
@@ -37,12 +36,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/MayankGoyal.png" sizes="any" />
-        {/* Add preload for critical CSS */}
-        <link
-          rel="preload"
-          href="/_next/static/css/17e412ec092d6dd3.css"
-          as="style"
-        />
         {/* Add preconnect for Google Fonts */}
         <link
           rel="preconnect"
@@ -65,12 +58,6 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         {/* Load non-critical scripts with low priority */}
-        <Script id="performance-optimization" strategy="afterInteractive">
-          {`
-            // Add any non-critical initialization here
-            console.log('Non-critical scripts loaded');
-          `}
-        </Script>
       </body>
     </html>
   );

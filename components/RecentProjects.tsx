@@ -79,8 +79,8 @@ const RecentProjects = () => {
                         <Image
                           src={icon}
                           alt="technology icon"
-                          width={24}
-                          height={24}
+                          width={60}
+                          height={60}
                           className="p-2"
                         />
                       </div>
